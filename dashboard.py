@@ -231,7 +231,7 @@ def main():
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown('<div class="section-title">Dispatch Performance</div>', unsafe_allow_html=True)
     if history:
-        dp1, dp2, dp3 = st.columns(3)
+        dp1, dp2, dp3, dp4 = st.columns(4)
         with dp1:
             metric_box("Last Batch Sent", f"{history[-1].get('total_sent', 0)}", trends["sent"])
         with dp2:
@@ -239,6 +239,20 @@ def main():
             metric_box("Automation Yield", f"{yield_val}%", trends["rate"])
         with dp3:
             metric_box("Legal Flags", f"{history[-1].get('total_skipped', 0)}")
+        with dp4:
+            halted_count = history[-1].get('total_halted', 0)
+            # Fallback: count HALTED entries from log if total_halted key is missing (older reports)
+            if halted_count == 0 and 'log' in history[-1]:
+                halted_count = sum(
+                    1 for e in history[-1]['log']
+                    if e.get('result') == 'HALTED'
+                )
+            metric_box(
+                "Stage 5 Halted",
+                f"{halted_count}",
+                delta="Requires manual review" if halted_count > 0 else None,
+                delta_type="neg" if halted_count > 0 else "neutral",
+            )
     else:
         st.info("No dispatch history available.")
 
