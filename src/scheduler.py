@@ -78,7 +78,9 @@ def start_scheduler():
     scheduler.add_job(
         scheduled_job,
         trigger=trigger,
-        name=f"Daily Finance Follow-up ({tz_name})"
+        name=f"Daily Finance Follow-up ({tz_name})",
+        misfire_grace_time=300,   # drop misfired triggers older than 5 min
+        max_instances=1,          # prevent overlapping runs
     )
     
     scheduler.start()

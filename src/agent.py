@@ -13,6 +13,7 @@ from langchain_groq import ChatGroq
 from langgraph.prebuilt import create_react_agent
 
 from src import config, logger
+from src.idempotency import is_recently_sent, get_last_send_time
 from src.tools import ALL_TOOLS, get_pending_invoices, process_invoice, generate_run_report
 
 
@@ -90,6 +91,15 @@ def run_agent(limit: int = None, verbose: bool = True) -> dict:
 
         if verbose:
             print(f"[AGENT] ({i}/{total}) {inv_no}  tier={tier}")
+
+        # ── Idempotency guard: skip if already emailed within window ─────
+        if is_recently_sent(inv_no, config.OUTPUT_DIR):
+            last_send = get_last_send_time(inv_no, config.OUTPUT_DIR) or "unknown"
+            msg = f"SKIPPED (idempotent) invoice_id={inv_no} last_send_time={last_send}"
+            logger.log_action(inv_no, "idempotency_check", "skipped", msg)
+            if verbose:
+                print(f"         -> {msg}")
+            continue
 
         result = json.loads(process_invoice.invoke(inv_no))
 
