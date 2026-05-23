@@ -14,6 +14,7 @@ from langgraph.prebuilt import create_react_agent
 
 from src import config, logger
 from src.idempotency import is_recently_sent, get_last_send_time
+from src.triage import TIER_LEGAL
 from src.tools import ALL_TOOLS, get_pending_invoices, process_invoice, generate_run_report
 
 
@@ -91,6 +92,17 @@ def run_agent(limit: int = None, verbose: bool = True) -> dict:
 
         if verbose:
             print(f"[AGENT] ({i}/{total}) {inv_no}  tier={tier}")
+
+        # ── Stage 5 halt: stop before any LLM / email work ───────────────
+        if tier == TIER_LEGAL:
+            msg = (
+                f"HALTED invoice_id={inv_no} | >30 days overdue (Stage 5). "
+                f"Manual legal/finance review required — no email sent."
+            )
+            logger.log_action(inv_no, "stage5_halt", "HALTED", msg)
+            if verbose:
+                print(f"         -> {msg}")
+            continue
 
         # ── Idempotency guard: skip if already emailed within window ─────
         if is_recently_sent(inv_no, config.OUTPUT_DIR):
