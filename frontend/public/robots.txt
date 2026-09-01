@@ -1,0 +1,15 @@
+# https://jaktra.site/robots.txt
+User-agent: *
+Allow: /
+Disallow: /invoices
+Disallow: /agent
+Disallow: /analytics
+Disallow: /disputes
+Disallow: /payment-plans
+Disallow: /settings
+Disallow: /activity-log
+Disallow: /dlq
+Disallow: /invite
+Disallow: /i/
+
+Sitemap: https://jaktra.site/sitemap.xml
