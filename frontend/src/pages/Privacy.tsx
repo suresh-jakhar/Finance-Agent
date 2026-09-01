@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import jaktraLogo from "../assets/jaktra_svg.svg";
+import { SEOHead } from "../components/common/SEOHead";
+import { breadcrumbSchema } from "../components/common/seo-schemas";
 
 function LegalNav() {
   return (
@@ -104,6 +106,12 @@ export function Privacy() {
         overflowX: "hidden",
       }}
     >
+      <SEOHead
+        title="Privacy Policy"
+        description="How Jaktra collects, uses, and protects your data. Learn about our privacy practices, data retention, multi-tenant isolation, and your rights."
+        canonicalPath="/privacy"
+        jsonLd={breadcrumbSchema([{ name: "Privacy Policy", path: "/privacy" }])}
+      />
       {/* Background glow mesh from landing theme */}
       <div
         className="gl-glow-mesh"
