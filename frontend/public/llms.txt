@@ -1,0 +1,48 @@
+# Jaktra — AI-Native Accounts Receivable Automation
+
+> https://jaktra.site
+
+## What is Jaktra?
+
+Jaktra is an enterprise-grade accounts receivable (AR) automation platform that replaces manual B2B collection workflows with intelligent, automated multi-channel follow-up generation. It orchestrates the entire communication cycle from initial reminders through to payment reconciliation, using AI to manage tone, timing, and escalation.
+
+## Who is it for?
+
+Jaktra is built for B2B finance teams, AR managers, controllers, and CFOs who currently manage collections manually — chasing overdue invoices via spreadsheets, personal email, and phone calls. It serves organizations from solo-operated AR desks up to mid-market finance departments with dozens of active collectors.
+
+## Core Capabilities
+
+- **5-Stage AI Tone Escalation** — Automated follow-ups that progress from Warm Reminder → Firm Follow-Up → Serious Notice → Stern Warning → Legal Hold, with configurable timing and AI-generated copy at each stage.
+- **Dispute Triage** — Debtor replies are automatically classified (pricing dispute, service complaint, payment timing, etc.), escalation pauses, and AI-drafted responses are queued for team review.
+- **Installment Payment Plans** — Debtors can self-serve payment plans via a secure portal. Plans are tracked and managed automatically.
+- **Dead Letter Queue (DLQ)** — Failed email deliveries are automatically retried with exponential backoff. Persistent failures surface in the operations dashboard.
+- **Debtor Self-Service Portal** — Secure, token-authenticated portals where debtors can view invoice details, pay directly via Razorpay, request installment plans, or raise disputes.
+- **Multi-Channel Communication** — Email (SendGrid, Resend, custom SMTP), SMS, and WhatsApp follow-up generation.
+- **Analytics & Reporting** — Collection summaries, aging pyramids, success metrics, and agent performance dashboards.
+- **Multi-Tenant Architecture** — Complete data isolation between organizations with role-based access control (Admin, Manager, Viewer).
+
+## Integrations
+
+- SendGrid (email delivery)
+- Resend (email delivery)
+- Custom SMTP servers
+- Razorpay (payment gateway)
+- CSV import (invoice data)
+- QuickBooks Online, Xero, NetSuite integrations on the roadmap
+
+## Pricing
+
+- **Free** — Up to 10 invoices, 1 user, forever free. Includes 5-stage escalation, email send, debtor portal, CSV import, and basic dispute classification.
+- **Starter** — Up to 200 invoices, 5 users. Adds AI reply drafting, installment plans, analytics, and priority support.
+- **Growth** — Up to 1,000 invoices, 20 users. Adds custom escalation tones, advanced audit logging, and SLA guarantees.
+- **Enterprise** — Unlimited invoices and users. Custom deployment, compliance packages (SOC 2, HIPAA), dedicated CSM, and guaranteed SLA.
+
+## Technology
+
+- Frontend: React + TypeScript, deployed on Vercel
+- Backend: Express.js + TypeScript + Drizzle ORM + PostgreSQL + Redis, deployed on Render
+- AI/ML: Python FastAPI service using Groq LLaMA 3.1 8B for structured text generation, risk scoring, and dispute classification
+
+## Contact
+
+For partnership, integration, or enterprise inquiries, visit https://jaktra.site or reach out through the platform's in-app support.
