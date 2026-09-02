@@ -7,6 +7,7 @@ import { StackedCardsDeck } from "../components/landing/StackedCardsDeck";
 import { authService } from "../services/auth";
 import { useAuth } from "../contexts/AuthContext";
 import { getErrorMessage } from "../utils/error-utils";
+import { SEOHead } from "../components/common/SEOHead";
 
 export function Register() {
   const [searchParams] = useSearchParams();
@@ -151,6 +152,12 @@ export function Register() {
 
   return (
     <section className="min-h-screen bg-[#050505] text-white antialiased [font-synthesis:none]">
+      <SEOHead
+        title="Start Free"
+        description="Create your free Jaktra account and automate accounts receivable with AI-powered 5-stage collection escalation. No credit card required."
+        canonicalPath="/register"
+        noindex
+      />
       <div className="grid min-h-screen lg:grid-cols-[0.94fr_1.06fr]">
         {/* Left Side - SignUp Form */}
         <div className="flex min-h-[760px] items-center justify-center bg-[#0a0a0c] border-b lg:border-b-0 lg:border-r border-white/10 px-6 py-10 sm:px-10 lg:min-h-screen lg:px-14 lg:py-16 xl:px-20">
