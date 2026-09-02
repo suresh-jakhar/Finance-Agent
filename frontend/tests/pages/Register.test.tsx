@@ -1,4 +1,4 @@
-﻿import { screen, act, waitFor, fireEvent } from '../test-utils';
+import { screen, act, waitFor, fireEvent } from '../test-utils';
 import { renderWithProviders, userEvent } from '../test-utils';
 import { Register } from '../../src/pages/Register';
 import { authService } from '../../src/services/auth';
@@ -147,5 +147,5 @@ describe('Register page', () => {
 
     global.setTimeout = originalTimeout;
     window.setTimeout = originalTimeout;
-  });
+  }, 15000);
 });

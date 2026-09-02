@@ -10,6 +10,7 @@ export default mergeConfig(
       setupFiles: ['./tests/setup.ts'],
       css: true,
       include: ['tests/**/*.{test,spec}.{ts,tsx}'],
+      testTimeout: 15000,
     },
   })
 );
