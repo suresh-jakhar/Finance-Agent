@@ -3,8 +3,22 @@ import { useParams } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { portalService } from '../services/portal';
 import { Loader2, AlertCircle, Check } from 'lucide-react';
+import { SEOHead } from '../components/common/SEOHead';
 
 export function DebtorPortal() {
+  return (
+    <>
+      <SEOHead
+        title="Payment Portal"
+        description="Secure invoice payment portal."
+        noindex
+      />
+      <DebtorPortalInner />
+    </>
+  );
+}
+
+function DebtorPortalInner() {
   const { token } = useParams<{ token: string }>();
 
   const { data, isLoading, error } = useQuery({
