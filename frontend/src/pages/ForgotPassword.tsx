@@ -7,6 +7,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { getErrorMessage } from "../utils/error-utils";
 import { AuthLayout } from "../layouts/AuthLayout";
 import { useIsInsideAuthLayout } from "../contexts/AuthLayoutContext";
+import { SEOHead } from "../components/common/SEOHead";
 
 type ResetStep = "email" | "verify" | "reset";
 
@@ -126,6 +127,12 @@ export function ForgotPassword() {
 
   const content = (
     <>
+      <SEOHead
+        title="Reset Password"
+        description="Reset your Jaktra account password securely."
+        canonicalPath="/forgot-password"
+        noindex
+      />
       {/* Step 1: Request Email */}
       {step === "email" && (
         <>
