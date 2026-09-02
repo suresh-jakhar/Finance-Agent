@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import jaktraLogo from "../assets/jaktra_svg.svg";
+import { SEOHead } from "../components/common/SEOHead";
+import { breadcrumbSchema } from "../components/common/seo-schemas";
 
 export function DocsMock() {
   return (
@@ -17,6 +19,12 @@ export function DocsMock() {
         fontFamily: "'Inter', sans-serif",
       }}
     >
+      <SEOHead
+        title="Documentation"
+        description="Jaktra API documentation, setup guides, webhook specifications, and escalation tuning playbooks for accounts receivable automation."
+        canonicalPath="/docs"
+        jsonLd={breadcrumbSchema([{ name: "Documentation", path: "/docs" }])}
+      />
       <div style={{ display: "inline-flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
         <img src={jaktraLogo} alt="Jaktra" style={{ height: 26, width: "auto" }} />
         <span style={{ fontSize: 20, fontWeight: 700, letterSpacing: "-0.02em", color: "#fff" }}>Jaktra Docs</span>
