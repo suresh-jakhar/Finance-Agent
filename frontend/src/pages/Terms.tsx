@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import jaktraLogo from "../assets/jaktra_svg.svg";
+import { SEOHead } from "../components/common/SEOHead";
+import { breadcrumbSchema } from "../components/common/seo-schemas";
 
 function LegalNav() {
   return (
@@ -104,6 +106,12 @@ export function Terms() {
         overflowX: "hidden",
       }}
     >
+      <SEOHead
+        title="Terms of Service"
+        description="Terms of Service governing use of the Jaktra accounts receivable automation platform. Covers acceptable use, data handling, service levels, and liability."
+        canonicalPath="/terms"
+        jsonLd={breadcrumbSchema([{ name: "Terms of Service", path: "/terms" }])}
+      />
       {/* Background glow mesh from landing theme */}
       <div
         className="gl-glow-mesh"
