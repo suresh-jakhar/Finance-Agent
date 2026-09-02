@@ -6,6 +6,7 @@ import { Card, CardContent } from '../components/ui/Card';
 import { Loader2, UserPlus, AlertCircle, ShieldCheck, Eye, EyeOff } from 'lucide-react';
 import { z } from 'zod';
 import { getErrorMessage } from '../utils/error-utils';
+import { SEOHead } from '../components/common/SEOHead';
 
 export function AcceptInvitation() {
   const navigate = useNavigate();
@@ -77,6 +78,7 @@ export function AcceptInvitation() {
   if (success) {
     return (
       <div className="min-h-screen bg-[#010102] text-[#f7f8f8] flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <SEOHead title="Accept Invitation" description="Accept your team invitation to Jaktra." noindex />
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <Card className="border border-[#23252a] bg-[#0f1011] rounded-2xl shadow-2xl">
             <CardContent className="py-12 flex flex-col items-center justify-center text-center">
