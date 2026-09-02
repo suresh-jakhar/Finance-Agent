@@ -7,6 +7,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { getErrorMessage } from "../utils/error-utils";
 import { AuthLayout } from "../layouts/AuthLayout";
 import { useIsInsideAuthLayout } from "../contexts/AuthLayoutContext";
+import { SEOHead } from "../components/common/SEOHead";
 
 type LoginStep = "credentials" | "mfa";
 
@@ -88,6 +89,12 @@ export function Login() {
 
   const content = (
     <>
+      <SEOHead
+        title="Sign In"
+        description="Sign in to your Jaktra account to manage accounts receivable automation, track collections, and monitor AI-powered follow-ups."
+        canonicalPath="/login"
+        noindex
+      />
       {step === "credentials" ? (
         <>
           <div>
