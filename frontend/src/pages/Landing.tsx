@@ -18,7 +18,13 @@ import { FAQS_LEFT, FAQS_RIGHT } from "../data/faqs";
 /* ─── Jaktra brand logo as SVG mark ──────────────────────────────── */
 function JaktraMark({ size = 22 }: { size?: number }) {
   return (
-    <img src={jaktraLogo} alt="Jaktra" style={{ height: size, width: "auto" }} />
+    <img
+      src={jaktraLogo}
+      alt="Jaktra"
+      width={size}
+      height={size}
+      style={{ height: size, width: size, display: "block" }}
+    />
   );
 }
 

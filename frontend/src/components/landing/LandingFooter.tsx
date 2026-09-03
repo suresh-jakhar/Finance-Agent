@@ -83,7 +83,9 @@ export function LandingFooter() {
               <img
                 src={jaktraLogo}
                 alt="Jaktra"
-                style={{ height: "26px", width: "auto", display: "block" }}
+                width={26}
+                height={26}
+                style={{ height: "26px", width: "26px", display: "block" }}
               />
             </div>
             <p style={{ fontSize: "12px", color: "#62666d", lineHeight: 1.6, maxWidth: "200px" }}>

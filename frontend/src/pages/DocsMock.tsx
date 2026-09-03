@@ -26,7 +26,7 @@ export function DocsMock() {
         jsonLd={breadcrumbSchema([{ name: "Documentation", path: "/docs" }])}
       />
       <div style={{ display: "inline-flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
-        <img src={jaktraLogo} alt="Jaktra" style={{ height: 26, width: "auto" }} />
+        <img src={jaktraLogo} alt="Jaktra" width={26} height={26} style={{ height: 26, width: 26 }} />
         <span style={{ fontSize: 20, fontWeight: 700, letterSpacing: "-0.02em", color: "#fff" }}>Jaktra Docs</span>
       </div>
 
