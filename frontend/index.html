@@ -9,10 +9,14 @@
     <title data-fallback="true">Jaktra — AI-Powered Accounts Receivable Automation</title>
     <meta data-fallback="true" name="description" content="Automate B2B collections with AI-powered 5-stage tone escalation, dispute triage, and installment plans. Your AR runs itself." />
 
-    <!-- Fonts — preconnect + swap for CLS prevention -->
+    <!-- Fonts — non-render-blocking async load + preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    </noscript>
   </head>
   <body>
     <div id="root"></div>
