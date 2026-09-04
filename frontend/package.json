@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npx playwright install chromium && tsc -b && vite build",
-    "build:vercel": "npx playwright install chromium && npm run build",
+    "build": "tsc -b && vite build",
+    "build:vercel": "npm run build",
     "build:seo": "npm run build",
     "lint": "eslint .",
     "preview": "vite preview",
