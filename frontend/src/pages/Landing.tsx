@@ -1478,28 +1478,43 @@ function Nav() {
   const [activeSection, setActiveSection] = useState<string>("");
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 24);
+    let ticking = false;
 
-      // Scroll-spy active section indicator
-      const scrollPos = window.scrollY + 200;
-      let current = "";
-      for (const item of NAV_ITEMS) {
-        const el = document.getElementById(item.target);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
-            current = item.target;
-            break;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          setScrolled(scrollY > 24);
+
+          // Only calculate scroll-spy offsets when actually scrolled past the hero
+          if (scrollY > 100) {
+            const scrollPos = scrollY + 200;
+            let current = "";
+            for (const item of NAV_ITEMS) {
+              const el = document.getElementById(item.target);
+              if (el) {
+                const top = el.offsetTop;
+                const height = el.offsetHeight;
+                if (scrollPos >= top && scrollPos < top + height) {
+                  current = item.target;
+                  break;
+                }
+              }
+            }
+            setActiveSection(current);
+          } else {
+            setActiveSection("");
           }
-        }
+          ticking = false;
+        });
+        ticking = true;
       }
-      setActiveSection(current);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+    if (window.scrollY > 24) {
+      handleScroll();
+    }
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 

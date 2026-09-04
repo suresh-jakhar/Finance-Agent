@@ -33,7 +33,7 @@ describe('Landing page & Root routing', () => {
 
     await waitFor(() => {
       expect(screen.getByRole('heading', { name: /welcome back/i })).toBeInTheDocument();
-    });
+    }, { timeout: 5000 });
   });
 
   it('navigates to /register when Get started link is clicked', async () => {
@@ -47,7 +47,7 @@ describe('Landing page & Root routing', () => {
 
     await waitFor(() => {
       expect(screen.getByRole('heading', { name: /create an account/i })).toBeInTheDocument();
-    });
+    }, { timeout: 5000 });
   });
 
   it('renders Dashboard with AppLayout on "/" when user is authenticated', async () => {

@@ -2,14 +2,17 @@ import { lazy, Suspense, useEffect } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AppLayout } from "./layouts/AppLayout";
 import { AuthLayout } from "./layouts/AuthLayout";
-import { Dashboard } from "./pages/Dashboard";
 import { Landing } from "./pages/Landing";
-import { Login } from "./pages/Login";
-import { Register } from "./pages/Register";
-import { ForgotPassword } from "./pages/ForgotPassword";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { useAuth } from "./contexts/AuthContext";
 import { Spinner } from "./components/ui/Spinner";
+
+import { Login } from "./pages/Login";
+import { Register } from "./pages/Register";
+import { ForgotPassword } from "./pages/ForgotPassword";
+
+// Lazy-loaded heavy dashboard, analytics, settings, and secondary routes
+const Dashboard = lazy(() => import("./pages/Dashboard").then(m => ({ default: m.Dashboard })));
 
 // Lazy-loaded heavy dashboard, analytics, settings, and secondary routes
 const Invoices = lazy(() => import("./pages/Invoices").then(m => ({ default: m.Invoices })));
