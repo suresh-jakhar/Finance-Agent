@@ -33,10 +33,24 @@ export function SEOHead({
   const fullTitle = title.includes(SITE_NAME) ? title : `${title} — ${SITE_NAME}`;
   const canonicalUrl = canonicalPath ? `${SITE_URL}${canonicalPath}` : undefined;
 
-  // Normalize JSON-LD into an array
+  // Normalize JSON-LD into an array and filter out any schemas already present in DOM
   const jsonLdItems = jsonLd
     ? Array.isArray(jsonLd) ? jsonLd : [jsonLd]
     : [];
+
+  const deduplicatedJsonLd = jsonLdItems.filter((item) => {
+    if (typeof document === "undefined") return true;
+    const type = item["@type"];
+    if (!type || typeof type !== "string") return true;
+    const typePattern = new RegExp(`"@type"\\s*:\\s*"${type}"`);
+    const existingScripts = document.querySelectorAll('script[type="application/ld+json"]');
+    for (const script of existingScripts) {
+      if (script.textContent && typePattern.test(script.textContent)) {
+        return false;
+      }
+    }
+    return true;
+  });
 
   return (
     <Helmet>
@@ -62,8 +76,8 @@ export function SEOHead({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
 
-      {/* JSON-LD Structured Data */}
-      {jsonLdItems.map((item, i) => (
+      {/* JSON-LD Structured Data — Idempotent injection */}
+      {deduplicatedJsonLd.map((item, i) => (
         <script key={`jsonld-${i}`} type="application/ld+json">
           {JSON.stringify(item)}
         </script>

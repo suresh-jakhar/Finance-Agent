@@ -47,13 +47,8 @@ export const softwareApplicationSchema = {
     description: "Up to 10 invoices, 1 user — forever free",
     availability: "https://schema.org/InStock",
   },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    ratingCount: "48",
-    bestRating: "5",
-    worstRating: "1",
-  },
+  image: `${SITE_URL}/logo.webp`,
+  screenshot: `${SITE_URL}/og-image.png`,
   creator: { "@id": `${SITE_URL}/#org` },
   featureList: [
     "5-stage AI tone escalation",

@@ -259,7 +259,11 @@
 }
 .gl-hero-title .title-line {
   display: block;
-  white-space: nowrap;
+}
+@media (min-width: 640px) {
+  .gl-hero-title .title-line {
+    white-space: nowrap;
+  }
 }
 .gl-hero-sub-wrap {
   max-width: 580px;
@@ -274,12 +278,19 @@
 }
 .gl-hero-sub-h2 .sub-line {
   display: block;
-  white-space: nowrap;
+}
+@media (min-width: 640px) {
+  .gl-hero-sub-h2 .sub-line {
+    white-space: nowrap;
+  }
 }
 .gl-metric-highlight {
   color: var(--accent-glow);
   font-weight: 500;
   text-shadow: 0 0 16px rgba(183, 210, 248, 0.45);
+  display: inline-block;
+  min-width: 220px;
+  vertical-align: bottom;
 }
 .gl-metric-wrap {
   display: inline-block;

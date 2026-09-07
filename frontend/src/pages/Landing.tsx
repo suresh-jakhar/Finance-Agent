@@ -7,12 +7,6 @@ import "../styles/jaktra-theme.css";
 import { StackedCardsDeck } from "../components/landing/StackedCardsDeck";
 import { PLATFORM_CARDS } from "../components/landing/platformCards";
 import { SEOHead } from "../components/common/SEOHead";
-import {
-  organizationSchema,
-  webSiteSchema,
-  softwareApplicationSchema,
-  faqPageSchema,
-} from "../components/common/seo-schemas";
 import { FAQS_LEFT, FAQS_RIGHT } from "../data/faqs";
 
 /* ─── Jaktra brand logo as SVG mark ──────────────────────────────── */
@@ -525,8 +519,8 @@ function HeroSection() {
         <div className="gl-hero-sub-wrap">
           <motion.h2
             className="gl-hero-sub-h2"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.8, ease: "easeOut" }}
           >
             <span className="sub-line">AI-native AR automation that autonomously</span>
@@ -538,8 +532,8 @@ function HeroSection() {
           {/* Body copy */}
           <motion.p
             className="gl-hero-body"
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.95, ease: "easeOut" }}
           >
             Put your accounts receivable on autopilot. Jaktra orchestrates intelligent collection cadences,
@@ -548,8 +542,8 @@ function HeroSection() {
 
           {/* Hero CTA Button */}
           <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.45, delay: 1.1 }}
           >
             <Link to="/register" className="gl-btn-demo">
@@ -1608,12 +1602,6 @@ export function Landing() {
         title="Jaktra — AI-Powered Accounts Receivable Automation"
         description="Automate B2B collections with AI-powered 5-stage tone escalation, dispute triage, and installment plans. Replace manual AR follow-up with a closed-loop system. Free tier available."
         canonicalPath="/"
-        jsonLd={[
-          organizationSchema,
-          webSiteSchema,
-          softwareApplicationSchema,
-          faqPageSchema,
-        ]}
       />
       <Nav />
       <main>
