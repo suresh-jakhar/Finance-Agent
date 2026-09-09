@@ -11,10 +11,38 @@ import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { ForgotPassword } from "./pages/ForgotPassword";
 
+const Pricing = lazy(() => import("./pages/Pricing").then(m => ({ default: m.Pricing })));
+const HighRadiusCompare = lazy(() => import("./pages/HighRadiusCompare").then(m => ({ default: m.HighRadiusCompare })));
+const UpflowCompare = lazy(() => import("./pages/UpflowCompare").then(m => ({ default: m.UpflowCompare })));
+const ChaserCompare = lazy(() => import("./pages/ChaserCompare").then(m => ({ default: m.ChaserCompare })));
+const FiveStageEscalation = lazy(() => import("./pages/FiveStageEscalation").then(m => ({ default: m.FiveStageEscalation })));
+const DisputeTriage = lazy(() => import("./pages/DisputeTriage").then(m => ({ default: m.DisputeTriage })));
+const InstallmentPlans = lazy(() => import("./pages/InstallmentPlans").then(m => ({ default: m.InstallmentPlans })));
+const DSOGuide = lazy(() => import("./pages/DSOGuide").then(m => ({ default: m.DSOGuide })));
+const SaasUseCase = lazy(() => import("./pages/SaasUseCase").then(m => ({ default: m.SaasUseCase })));
+const AgencyUseCase = lazy(() => import("./pages/AgencyUseCase").then(m => ({ default: m.AgencyUseCase })));
+const ManufacturingUseCase = lazy(() => import("./pages/ManufacturingUseCase").then(m => ({ default: m.ManufacturingUseCase })));
+const ToneEscalationPlaybook = lazy(() => import("./pages/ToneEscalationPlaybook").then(m => ({ default: m.ToneEscalationPlaybook })));
+const ZeroLoginPortal = lazy(() => import("./pages/ZeroLoginPortal").then(m => ({ default: m.ZeroLoginPortal })));
+const EmailDeliverability = lazy(() => import("./pages/EmailDeliverability").then(m => ({ default: m.EmailDeliverability })));
+const RiskScoring = lazy(() => import("./pages/RiskScoring").then(m => ({ default: m.RiskScoring })));
+const PaidNiceCompare = lazy(() => import("./pages/PaidNiceCompare").then(m => ({ default: m.PaidNiceCompare })));
+const ProfessionalServicesUseCase = lazy(() => import("./pages/ProfessionalServicesUseCase").then(m => ({ default: m.ProfessionalServicesUseCase })));
+const DunningTemplatesResource = lazy(() => import("./pages/DunningTemplatesResource"));
+const ConstructionUseCase = lazy(() => import("./pages/ConstructionUseCase"));
+const LogisticsFreightUseCase = lazy(() => import("./pages/LogisticsFreightUseCase"));
+const StaffingRecruitingUseCase = lazy(() => import("./pages/StaffingRecruitingUseCase"));
+const WholesaleDistributionUseCase = lazy(() => import("./pages/WholesaleDistributionUseCase"));
+const ArRoiCalculatorResource = lazy(() => import("./pages/ArRoiCalculatorResource"));
+const KollenoCompare = lazy(() => import("./pages/KollenoCompare"));
+const CompareHub = lazy(() => import("./pages/CompareHub"));
+const UseCasesHub = lazy(() => import("./pages/UseCasesHub"));
+const FeaturesHub = lazy(() => import("./pages/FeaturesHub"));
+const ResourcesHub = lazy(() => import("./pages/ResourcesHub"));
+
 // Lazy-loaded heavy dashboard, analytics, settings, and secondary routes
 const Dashboard = lazy(() => import("./pages/Dashboard").then(m => ({ default: m.Dashboard })));
 
-// Lazy-loaded heavy dashboard, analytics, settings, and secondary routes
 const Invoices = lazy(() => import("./pages/Invoices").then(m => ({ default: m.Invoices })));
 const InvoiceDetail = lazy(() => import("./pages/InvoiceDetail").then(m => ({ default: m.InvoiceDetail })));
 const Agent = lazy(() => import("./pages/Agent").then(m => ({ default: m.Agent })));
@@ -86,6 +114,35 @@ function App() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/docs" element={<DocsMock />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/features/5-stage-escalation" element={<FiveStageEscalation />} />
+          <Route path="/features/dispute-triage" element={<DisputeTriage />} />
+          <Route path="/features/installment-plans" element={<InstallmentPlans />} />
+          <Route path="/resources/how-to-reduce-dso" element={<DSOGuide />} />
+          <Route path="/compare/highradius-vs-jaktra" element={<HighRadiusCompare />} />
+          <Route path="/compare/highradius-alternative" element={<HighRadiusCompare />} />
+          <Route path="/compare/upflow-alternative" element={<UpflowCompare />} />
+          <Route path="/compare/chaser-alternative" element={<ChaserCompare />} />
+          <Route path="/compare/paidnice-alternative" element={<PaidNiceCompare />} />
+          <Route path="/use-cases/saas" element={<SaasUseCase />} />
+          <Route path="/use-cases/agencies" element={<AgencyUseCase />} />
+          <Route path="/use-cases/manufacturing" element={<ManufacturingUseCase />} />
+          <Route path="/use-cases/professional-services" element={<ProfessionalServicesUseCase />} />
+          <Route path="/features/zero-login-portal" element={<ZeroLoginPortal />} />
+          <Route path="/features/email-deliverability" element={<EmailDeliverability />} />
+          <Route path="/features/risk-scoring" element={<RiskScoring />} />
+          <Route path="/resources/5-stage-ar-tone-escalation" element={<ToneEscalationPlaybook />} />
+          <Route path="/resources/b2b-dunning-email-templates" element={<DunningTemplatesResource />} />
+          <Route path="/use-cases/construction" element={<ConstructionUseCase />} />
+          <Route path="/use-cases/logistics-freight" element={<LogisticsFreightUseCase />} />
+          <Route path="/use-cases/staffing-recruiting" element={<StaffingRecruitingUseCase />} />
+          <Route path="/use-cases/wholesale-distribution" element={<WholesaleDistributionUseCase />} />
+          <Route path="/resources/ar-automation-roi-calculator" element={<ArRoiCalculatorResource />} />
+          <Route path="/compare/kolleno-alternative" element={<KollenoCompare />} />
+          <Route path="/compare" element={<CompareHub />} />
+          <Route path="/use-cases" element={<UseCasesHub />} />
+          <Route path="/features" element={<FeaturesHub />} />
+          <Route path="/resources" element={<ResourcesHub />} />
 
 
           {/* Protected Routes */}

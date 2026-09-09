@@ -768,11 +768,13 @@
 }
 .gl-footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr repeat(4,1fr);
+  grid-template-columns: 1.4fr repeat(5, 1fr);
   gap: 32px;
   margin-bottom: 48px;
 }
-@media (max-width: 900px) { .gl-footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 1100px) { .gl-footer-grid { grid-template-columns: 1.4fr repeat(3, 1fr); } }
+@media (max-width: 768px) { .gl-footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .gl-footer-grid { grid-template-columns: 1fr; } }
 .gl-footer-col-head {
   font-family: var(--mono);
   font-size: 11px;

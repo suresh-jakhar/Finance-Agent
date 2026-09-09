@@ -547,7 +547,7 @@ function HeroSection() {
             transition={{ duration: 0.45, delay: 1.1 }}
           >
             <Link to="/register" className="gl-btn-demo">
-              Get started
+              Get started free
             </Link>
           </motion.div>
         </div>
@@ -767,7 +767,7 @@ function HowItWorks() {
               Jaktra is operational in under a day. Your first automated collection cycle runs before your next stand-up.
             </p>
             <Link to="/register" className="gl-btn-demo">
-              Start for free <ArrowRight size={14} />
+              Get started free <ArrowRight size={14} />
             </Link>
           </div>
 
@@ -1051,16 +1051,18 @@ function PricingSection() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   const freeTier = {
-    name: "Free",
+    name: "Early Access",
     price: "$0",
-    period: "forever",
-    limit: "10 invoices · 1 user",
+    period: "free during early access",
+    limit: "Full platform access · No limits",
     features: [
       "5-stage autonomous escalation cadence",
-      "SendGrid & custom SMTP email delivery",
-      "Debtor self-service payment portal",
-      "CSV invoice import & sync",
-      "Basic dispute classification & hold",
+      "AI dispute triage & sentiment classification",
+      "Debtor self-service payment portal (/i/:token)",
+      "Structured installment payment plans",
+      "Dead Letter Queue (DLQ) deliverability resilience",
+      "Predictive ML delinquency risk scoring",
+      "SendGrid, Resend & custom SMTP integration",
       "Full activity audit trail & event history",
     ],
   };
@@ -1070,17 +1072,17 @@ function PricingSection() {
       <div className="gl-section" ref={ref}>
         <div style={{ textAlign: "center", marginBottom: 48 }}>
           <div className={`gl-reveal${inView ? " visible" : ""}`} style={{ justifyContent: "center", display: "flex", marginBottom: 16 }}>
-            <span className="gl-eye"><span className="gl-eye-dot" />Pricing</span>
+            <span className="gl-eye"><span className="gl-eye-dot" />Early Access</span>
           </div>
           <h2 className={`gl-h2 gl-reveal${inView ? " visible" : ""}`} style={{ textAlign: "center", transitionDelay: "0.08s" }}>
-            Priced for your AR volume.
+            100% Free During Early Access.
           </h2>
-          <p className={`gl-body gl-reveal${inView ? " visible" : ""}`} style={{ maxWidth: 420, margin: "14px auto 0", transitionDelay: "0.14s" }}>
-            Start free. No credit card required.
+          <p className={`gl-body gl-reveal${inView ? " visible" : ""}`} style={{ maxWidth: 460, margin: "14px auto 0", transitionDelay: "0.14s" }}>
+            Get full access to all autonomous AR features. No credit card required.
           </p>
         </div>
 
-        <div style={{ maxWidth: 440, margin: "0 auto" }}>
+        <div style={{ maxWidth: 460, margin: "0 auto" }}>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -1114,7 +1116,7 @@ function PricingSection() {
                   letterSpacing: "0.04em",
                 }}
               >
-                FOREVER FREE
+                100% FREE
               </span>
             </div>
 
@@ -1147,7 +1149,7 @@ function PricingSection() {
                 e.currentTarget.style.color = "#000";
               }}
             >
-              Start for free
+              Get started free
             </Link>
 
             <div style={{ borderTop: "1px solid var(--border)", paddingTop: 20, display: "flex", flexDirection: "column", gap: 10 }}>
@@ -1322,7 +1324,7 @@ function FinalCTA() {
             Start recovering overdue invoices today
           </h2>
           <p style={{ fontSize: 15, color: "var(--fg-muted)", marginBottom: 32, maxWidth: 560, marginInline: "auto", lineHeight: 1.6 }}>
-            Upload your first batch of invoices, configure your email and payment providers, and recover cash on autopilot. Free for up to 10 invoices with no credit card required.
+            Upload your first batch of invoices, configure your email and payment providers, and recover cash on autopilot. 100% free during early access with no credit card required.
           </p>
 
           <div style={{ display: "flex", justifyContent: "center", marginBottom: 24 }}>
@@ -1357,20 +1359,29 @@ function Footer() {
     {
       head: "Product",
       links: [
-        { label: "Features", to: "#features" },
+        { label: "Features", to: "/features" },
+        { label: "Pricing", to: "/pricing" },
         { label: "How It Works", to: "#how-it-works" },
         { label: "Security", to: "#security" },
-        { label: "Pricing", to: "#pricing" },
         { label: "FAQ", to: "#faq" },
+      ],
+    },
+    {
+      head: "Resources",
+      links: [
+        { label: "Use Cases", to: "/use-cases" },
+        { label: "Compare", to: "/compare" },
+        { label: "Features", to: "/features" },
+        { label: "Resources", to: "/resources" },
       ],
     },
     {
       head: "Integrations",
       links: [
-        { label: "SendGrid", to: "#security" },
-        { label: "Resend", to: "#security" },
+        { label: "SendGrid", to: "https://sendgrid.com" },
+        { label: "Resend", to: "https://resend.com" },
         { label: "SMTP", to: "#security" },
-        { label: "Razorpay", to: "#security" },
+        { label: "Razorpay", to: "https://razorpay.com" },
       ],
     },
     {
@@ -1433,6 +1444,16 @@ function Footer() {
                   key={link.label}
                   href={link.to}
                   onClick={(e) => handleHashClick(e, link.to)}
+                  className="gl-footer-link"
+                >
+                  {link.label}
+                </a>
+              ) : link.to.startsWith("http") ? (
+                <a
+                  key={link.label}
+                  href={link.to}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="gl-footer-link"
                 >
                   {link.label}
@@ -1551,7 +1572,7 @@ function Nav() {
 
         <div className="gl-nav-actions">
           <Link to="/login" className="gl-btn-ghost">Sign in</Link>
-          <Link to="/register" className="gl-btn-primary">Get started</Link>
+          <Link to="/register" className="gl-btn-primary">Get started free</Link>
           <button
             onClick={() => setMobileOpen((v) => !v)}
             style={{ background: "none", border: "none", color: "#fff", cursor: "pointer", display: "none" }}
@@ -1585,7 +1606,7 @@ function Nav() {
             ))}
             <div style={{ marginTop: 12, display: "flex", gap: 10 }}>
               <Link to="/login" className="gl-btn-ghost" style={{ flex: 1, justifyContent: "center" }}>Sign in</Link>
-              <Link to="/register" className="gl-btn-primary" style={{ flex: 1, justifyContent: "center" }}>Get started</Link>
+              <Link to="/register" className="gl-btn-primary" style={{ flex: 1, justifyContent: "center" }}>Get started free</Link>
             </div>
           </motion.div>
         )}
@@ -1600,7 +1621,7 @@ export function Landing() {
     <div className="gl-root">
       <SEOHead
         title="Jaktra — AI-Powered Accounts Receivable Automation"
-        description="Automate B2B collections with AI-powered 5-stage tone escalation, dispute triage, and installment plans. Replace manual AR follow-up with a closed-loop system. Free tier available."
+        description="Automate B2B collections with AI-powered 5-stage tone escalation, dispute triage, and installment plans. Replace manual AR follow-up with a closed-loop system. 100% free during early access with no credit card required."
         canonicalPath="/"
       />
       <Nav />

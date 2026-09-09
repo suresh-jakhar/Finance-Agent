@@ -62,7 +62,7 @@ describe('Landing page & Root routing', () => {
 
     await waitFor(() => {
       expect(screen.getByText(/Total Portfolio/i)).toBeInTheDocument();
-    });
+    }, { timeout: 5000 });
     expect(screen.queryByText(/Autonomous AR Collection/i)).not.toBeInTheDocument();
   });
 });

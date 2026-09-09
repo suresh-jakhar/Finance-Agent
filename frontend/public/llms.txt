@@ -9,12 +9,21 @@
 - [Privacy Policy](https://jaktra.site/privacy): Detailed information on data isolation, tenant security, AES-256 encryption, and GDPR compliance.
 - [Terms of Service](https://jaktra.site/terms): Complete legal terms governing accounts, subscriptions, usage limits, and liability.
 
-## Capabilities & Architecture
+## Core Platform Hubs
 
-- [5-Stage AI Tone Escalation](https://jaktra.site/#features): Intelligent collection cadences transitioning from warm friendly reminders to formal legal hold.
-- [Dispute Triage Engine](https://jaktra.site/#features): Automated categorization of debtor replies with AI-generated draft responses for team review.
-- [Debtor Payment Portal](https://jaktra.site/#features): Tokenized self-service portal for debtors to view invoices, execute Razorpay payments, or request payment plans.
-- [Security & Tenant Isolation](https://jaktra.site/#security): Strict multi-tenant data isolation, AES-256 encryption at rest, and audit trail logging.
+- [Features Hub](https://jaktra.site/features): The complete autonomous AR execution stack — 5-stage tone escalation, dispute triage, tokenized portals, DLQ deliverability, and predictive risk scoring.
+- [Software Buyer's Guide & Compare Hub](https://jaktra.site/compare): Objective comparisons of Jaktra vs HighRadius, Upflow, Chaser, PaidNice, and Kolleno.
+- [Industry Solutions Directory](https://jaktra.site/use-cases): B2B DSO benchmarks and tailored dunning workflows across 14 commercial industries.
+- [Resources & Knowledge Hub](https://jaktra.site/resources): Research-backed DSO reduction guides, 5-stage tone escalation playbooks, email templates, and working capital ROI calculators.
+- [Pricing](https://jaktra.site/pricing): 100% free during Early Access with zero credit card required and no invoice caps.
+- [Documentation](https://jaktra.site/docs): Developer documentation, API setup guides, webhook integration specifications, and payment gateway configuration.
+
+## Capabilities & Deep Dives
+
+- [5-Stage AI Tone Escalation](https://jaktra.site/features/5-stage-escalation): Dynamic LLaMA 3.1 tone escalation from friendly reminders to Stage 5 legal hold.
+- [AI Dispute Triage](https://jaktra.site/features/dispute-triage): NLP sentiment classifier that freezes collection cadences upon debtor disputes.
+- [Tokenized Debtor Portal](https://jaktra.site/features/zero-login-portal): Zero-login payment links (/i/:token) with instant statement of account review.
+- [How to Reduce DSO Guide](https://jaktra.site/resources/how-to-reduce-dso): Comprehensive Countback DSO calculation methodology and 5 operational reduction levers.
 
 ## Optional
 
